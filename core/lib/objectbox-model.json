@@ -1,0 +1,58 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:8949423407449947911",
+      "lastPropertyId": "2:1442570201053051255",
+      "name": "FCMBox",
+      "properties": [
+        {
+          "id": "1:4856022847294391501",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:1442570201053051255",
+          "name": "fcmData",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:1757405109704101055",
+      "lastPropertyId": "3:6445557818723422886",
+      "name": "SchedulerBox",
+      "properties": [
+        {
+          "id": "1:192585191858918159",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "3:6445557818723422886",
+          "name": "data",
+          "type": 9
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "2:1757405109704101055",
+  "lastIndexId": "0:0",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [
+    1040627380150214594
+  ],
+  "retiredRelationUids": [],
+  "version": 1
+}

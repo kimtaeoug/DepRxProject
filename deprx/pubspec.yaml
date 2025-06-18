@@ -1,0 +1,35 @@
+name: deprx
+description: "DepRx"
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+3
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  get: ^4.7.2
+  intl: ^0.19.0
+  flutter_localizations:
+    sdk: flutter
+  path_provider: ^2.1.5
+  common:
+    path: ../common
+  resource:
+    path: ../resource
+  core:
+    path: ../core
+  api:
+    path: ../api
+  encryption:
+    path: ../encryption
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+
+flutter:
+  uses-material-design: true

@@ -1,0 +1,5 @@
+# Project exclude paths
+/.dart_tool/
+/api/.dart_tool/
+/common/.dart_tool/
+/core/.dart_tool/

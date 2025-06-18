@@ -1,0 +1,73 @@
+name: DepRxMelos
+
+packages:
+  - common/**
+  - resource/**
+  - core/**
+  - api/**
+  - encryption/**
+
+command:
+  bootstrap:
+    environment:
+      sdk: ">=3.0.0 <4.0.0"
+      flutter: ">=3.0.0 <4.0.0"
+  dependencies:
+    common: ^1.0.0
+    flutter:
+      sdk: flutter
+
+#melos run $script
+scripts:
+  #melos prebuild
+  refresh:
+    description: melos clean & bootstrap
+    steps:
+      - echo 'START MELOS CLEAN AND BOOTSTRAP'
+      - melos clean && melos bootstrap
+      - echo 'END MELOS CLEAN AND BOOTSTRAP'
+  #clean melos:
+  clean:
+    description: clean melos
+    steps:
+      - echo 'START MELOS CLEAN'
+      - melos clean
+      - echo 'END MELOS CLEAN'
+  #common 패키지 받기
+  pub_get_common:
+    run: melos exec -- "cd common/ && flutter pub get"
+    select-package:
+      scope: 'common'
+  #common 패키지 제거
+  clean_common:
+    run: melos exec -- "cd common/ && flutter clean"
+    select-package:
+      scope: 'common'
+  #Check common coverage
+  common_coverage:
+    run: melos exec -- "cd common/ && flutter test --coverage"
+  #Check Fatal info
+  analyze_fatal_info: melos analyze --fatal-infos
+  #Check Fatal Warnings
+  analyze_fatal_warnings: melos analyze --fatal-warnings
+  #All Clean And Update
+  all_refresh:
+    description: Melos 및 모든 패키지 clean pub get
+    steps:
+      - echo -e "START ALL REFRESH"
+      - melos clean
+      - melos bootstrap
+      - echo -e "MELOS DONE"
+      - cd common && flutter clean && flutter pub get
+      - echo -e "COMMON DONE"
+      - cd .. && cd resource && flutter clean && flutter pub get
+      - echo -e "RESOURCE DONE"
+      - cd .. && cd core && flutter clean && flutter pub get
+      - echo -e "CORE DONE"
+      - cd .. && cd api && flutter clean && flutter pub get
+      - echo -e "API DONE"
+      - cd .. && cd deprx && flutter clean && flutter pub get
+      - echo -e "DEPRX DONE"
+      - cd .. && cd sham && flutter clean && flutter pub get
+      - echo -e "SHAM DONE"
+      - echo -e "ALL REFRESH DONE"
