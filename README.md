@@ -43,33 +43,26 @@ DepRx는 BA 기반으로 우울증 치료한 디지털 치료제입니다. BA �
 <details>
     <summary>서비스 설계</summary>
  <pre>
- 1. 서비스 설계
+ 1. TF-Team 리드
   ㆍ Desc : 기획자의 부재로 TF-Team을 꾸려 서비스 설계 -> 주요 기능들 기획, 서비스 플로우 및 Architecture 설계  
  2. 운영 관련 
   ㆍ Desc : GA, 언어팩, Sentry, SDUI, Firebase Remote Config, Hot fix등 설계 및 개발  
- 3. 임상용 배포 설계
-  ㆍ Desc : Firebase App Distribution 활용 CI/CD 설계 및 개발
+ 3. 임상용 배포 설계 및 개발
+  ㆍ Desc : CI/CD 설계 및 개발, RemoteConfig 기반 A/B테스트 설계 및 개발
 </details>  
 <details>
     <summary> Melos 설계 및 개발 </summary>
  <pre>
   ㆍ Desc : DepRx와 Sham 2가지 앱에서 공통으로 사용되는 패키지들을 개발 및 관리하기 위해 Melos 설계 및 개발
-    ㆍ Detail :
-          1. 기능 별로 패키지 분리 설계
-          2. Resource(Local data 및 Asset들을 관리 및 활용하는 패키지) 패키지 개발
-          3. Encryption(암호화 및 앱 환경 변수 관리 패키지) 개발
-          4. Core(Util, Handler, Extension, Regex등 관리 패키지) 개발
-          5. Common(Component 패키지) 개발
-          6. API(Data Layer 및 Domain Layer 관리 패키지) 개발
-          7. DepRx 앱용 패키지 개발
-          8. Sham 앱용 패키지 개발
- </pre>
-</details>
-<details>
-    <summary> Procedure 개발 </summary>
- <pre>
-  ㆍ Desc : 디지털 치료제 특성상 적용되는 Flow 설계 및 개발  
-  ㆍ Detail : 8주 또는 16주 각 주차마다 진행해야하는 Flow 개발
+  ㆍ Detail :
+     1. 기능 별로 패키지 분리 설계
+     2. Resource(Local data 및 Asset들을 관리 및 활용하는 패키지) 패키지 개발
+     3. Encryption(암호화 및 앱 환경 변수 관리 패키지) 개발
+     4. Core(Util, Handler, Extension, Regex등 관리 패키지) 개발
+     5. Common(Component 패키지) 개발
+     6. API(Data Layer 및 Domain Layer 관리 패키지) 개발
+     7. DepRx 앱 패키지 개발
+     8. Sham 앱 패키지 개발
  </pre>
 </details>
 <details>
