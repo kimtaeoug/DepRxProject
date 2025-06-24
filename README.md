@@ -1,4 +1,4 @@
-* ___Encryption, Resource 및 일부 파일들은 비공개합니다.___  
+* ___비밀 유지 계약에 따라 Encryption, Resource패키지, 코드 및 일부 파일들은 비공개합니다.___  
 
 <h1 align="center">DepRx & Sham</h1>
 <div align="left">
