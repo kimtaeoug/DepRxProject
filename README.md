@@ -31,64 +31,42 @@
 DepRx는 BA 기반으로 우울증 치료한 디지털 치료제입니다. BA 추천, 선택 및 수행, K-BDS, Reward, Report등의 기능을 제공합니다.  
 
 ### 💡 프로젝트 인원 구성  
-- App개발자(1명), 서버 개발(1명), 디자이너(1명), 기획자(1명)  
+- App개발자(1명), 서버 개발(1명), 디자이너(1명) 
 
 ### ⚙️ 기술 Stack
-* 상태 관리 및 바인딩, 라우팅 -> GetX
-* 디자인 패턴 -> Clean Architecture
-* 의존성 주입 -> DI
-* Package 관리 -> Melos
+* 기술 : Flutter, Android, iOS, Firebase
+* 라이브러리 : GetX, Dio, Http등
+* 상태 관리 : GetX
+* Architecture : CleanArchitecture
+* Package 관리 : Melos
 
 ### 🧑‍💻 프로젝트내 담당 업무  
-<details>
-    <summary>서비스 설계</summary>
- <pre>
- 1. TF-Team 리드
-  ㆍ Desc : 기획자의 부재로 TF-Team을 꾸려 서비스 설계 -> 주요 기능들 기획, 서비스 플로우 및 Architecture 설계  
- 2. 운영 관련 
-  ㆍ Desc : GA, 언어팩, Sentry, SDUI, Firebase Remote Config, Hot fix등 설계 및 개발  
- 3. 임상용 배포 설계 및 개발
-  ㆍ Desc : CI/CD 설계 및 개발, RemoteConfig 기반 A/B테스트 설계 및 개발
-</details>  
-<details>
-    <summary> Melos 설계 및 개발 </summary>
- <pre>
-  ㆍ Desc : DepRx와 Sham 2가지 앱에서 공통으로 사용되는 패키지들을 개발 및 관리하기 위해 Melos 설계 및 개발
-  ㆍ Detail :
-     1. 기능 별로 패키지 분리 설계
-     2. Resource(Local data 및 Asset들을 관리 및 활용하는 패키지) 패키지 개발
-     3. Encryption(암호화 및 앱 환경 변수 관리 패키지) 개발
-     4. Core(Util, Handler, Extension, Regex등 관리 패키지) 개발
-     5. Common(Component 패키지) 개발
-     6. API(Data Layer 및 Domain Layer 관리 패키지) 개발
-     7. DepRx 앱 패키지 개발
-     8. Sham 앱 패키지 개발
- </pre>
-</details>
-<details>
-    <summary> 성능 개선</summary>
-    <pre>
-     1. 성능 점겅
-     ㆍ Desc : Flutter DevTool 및 Device Util을 활용해 앱 성능을 1차 검토하고, 기업 도움 관련 센터에서 다양한 Physical Device를 빌려 2차 성능 검토
-     2. Singletone같은 Isolate 기능 개발
-     ㆍ Desc : Isolate를 활용해 서비스에서 사용되는 로컬 데이터를 Isolate에 넣어놓고, 필요할때 마다 사용할 수 있는 기능 개발
-     3. Local Image Preload 기능 개발
-     ㆍ Desc : 앱 실행시 Local에 있는 이미지를 Cache에 올려 이미지 로딩 속도를 개선하는 기능 개발
-     4. Local DB 기능 개선
-     ㆍ Desc : SharedPreference에서 ObjectBox로 대체하여 개발
-     5. Timer 기능 개선
-     ㆍ Desc : Controller에서 Rx로 사용하던 Timer를 Isolate를 활용하는 Class로 대체하는 기능 개발 
-     6. 리팩토링
-     ㆍ Desc : 패키지들 및 앱 관련 리팩토링
-    </pre>
-</details>
-<details>
-    <summary> 임상 관련 문서 작성 </summary>
-    <pre>
-     1. 임상 보안 문서 일부 작성
-     2. 앱 프로토콜 문서 작성
-    </pre>
-</details>
+<pre>
+📱 앱 아키텍처 및 패키지 구성
+- Clean Architecture 기반 설계: 유지보수성과 테스트 편의성을 고려한 계층 구조 도입
+- Melos 기반 패키지 관리: 공통 모듈 분리 및 앱 멀티패키지 구조 설계
+- DepRx, Sham 앱 개발: Melos 기반 구조로 병렬 앱 개발 진행
+
+🔔 사용자 경험 및 기능 구현
+- Fcm 기반 Push 알림 및 PayLoad 로직 개발
+- SDUI 기반 앱 설계 및 알파데이터 수집 기능 개발: 런타임에서 UI 구성 가능하도록 설계
+- 다국어 대응: 한국어/영어 언어팩 기반 다국어 기능 구현
+- 소셜 로그인 통합: KakaoTalk, Google, Apple, Naver 연동 (Native 기반(kotlin, swift))
+- Local DB 및 Bundle load이슈관련 Isolate, Native 활용 기능 개선
+- 앱 기능 학습곡선을 줄이기 위해 단계별 튜토리얼 및 툴팁 제공
+
+🕛 UX 편의 기능
+- TF-Team Lead 및 서비스 기획
+- 리프레시 타이머 기능: 매일 오전 0시 기준으로 데이터 자동 리프레시 처리
+- Firebase RemoteConfig 기반 A/B 테스트 설계 및 개발
+- 텍스트 대비, 크기 조정, 버튼 터치 영역 확장 등 접근성(Accessibility) 개선 요소 반영
+
+🔒 보안 및 품질 관리
+- 환경변수 및 RSA 암호화 기반 보안 기능 구현
+- Sentry 기반 이슈 모니터링 및 대응 체계 구축
+- GA(Google Analytics) 기반 이벤트 추적 및 사용자 행동 분석 적용
+- GithubAction 활용 CI/CD 구축
+</pre>
 
 ### 협업 Tool
 ![Stack](https://img.shields.io/badge/slack-4A154B?style=for-the-badge&logo=Slack&logoColor=white)
